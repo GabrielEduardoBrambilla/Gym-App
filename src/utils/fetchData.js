@@ -2,10 +2,10 @@ import axios from 'axios'
 
 export const exerciseOptions = {
   method: 'GET',
-  url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+  url: 'https://exercisedb.p.rapidapi.com/exercises/',
   params: { limit: '10' },
   headers: {
-    'X-RapidAPI-Key': import.meta.env.RAPID_API_KEY,
+    'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
     'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
   }
 }
