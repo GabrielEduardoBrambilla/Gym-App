@@ -5,7 +5,7 @@ import { Stack } from '@mui/material'
 import Logo from '../../assets/images/Logo.png'
 
 
-export const NavBar = () => {
+export const Exercises = () => {
   return (
     <Stack
       direction={"row"}
@@ -25,9 +25,8 @@ export const NavBar = () => {
         alignItems={'flex-end'}
       >
         <Link style={{ textDecoration: "none", color: "#3a1212", borderBottom: '3px solid #FF2625' }}>
-          Home
+          <a href="#exercises" style={{ textDecoration: 'none', color: '#3A1212' }}>Exercises</a>
         </Link>
-        <a href="#exercises" style={{ textDecoration: 'none', color: '#3A1212' }}>Exercises</a>
       </Stack>
 
     </Stack>
