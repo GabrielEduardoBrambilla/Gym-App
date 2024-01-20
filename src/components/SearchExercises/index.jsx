@@ -4,34 +4,40 @@ import { fetchData, exerciseOptions } from '../../utils/fetchData'
 import { HorizontalScrollbar } from '../HorizontalScrollbar'
 
 
-export const SearchExercises = ({ setExercise, bodyPart, setBodyPart }) => {
+export const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   const [Search, setSearch] = useState('')
   const [bodyParts, setBodyParts] = useState([])
 
 
   useEffect(() => {
-    const options = exerciseOptions
     const fetchExerciseData = async () => {
-      options.url = exerciseOptions.url.concat('bodyParts')
+      const options = { ...exerciseOptions }
+      options.url = options.url.concat('/bodyPartList')
+      console.log(options.url)
       const data = await fetchData(options)
 
       setBodyParts(['all', ...data])
 
     }
+    fetchExerciseData()
   }, [])
 
   const handleSearch = async () => {
     if (Search) {
-      const data = await fetchData(exerciseOptions)
 
-      const searchedExercises = data.filter((exercise) => exercise.name.toLowerCase().includes(Search)
-        || exercise.target.toLowerCase().includes(Search)
-        || exercise.equipment.toLowerCase().includes(Search)
-        || exercise.bodyPart.toLowerCase().includes(Search)
+      const options = { ...exerciseOptions }
+      console.log(options.url)
+      const data = await fetchData(options)
+
+      const searchedExercises = data.filter(
+        (exercise) => exercise.name.toLowerCase().includes(Search)
+          || exercise.target.toLowerCase().includes(Search)
+          || exercise.equipment.toLowerCase().includes(Search)
+          || exercise.bodyPart.toLowerCase().includes(Search)
       )
 
       setSearch('')
-      setExercise(searchedExercises)
+      setExercises(searchedExercises)
     }
 
   }
