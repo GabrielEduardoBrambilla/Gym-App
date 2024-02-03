@@ -13,12 +13,14 @@ export const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     const fetchExerciseData = async () => {
       const options = { ...exerciseOptions }
       options.url = options.url.concat('/bodyPartList')
-      options.limit = 150;
 
       const data = await fetchData(options)
 
       setBodyParts(['all', ...data])
-
+      const optionsExercise = { ...exerciseOptions }
+      optionsExercise.params.limit = 150;
+      const response = await fetchData(optionsExercise)
+      setExercises(response.data)
     }
     fetchExerciseData()
   }, [])
@@ -27,12 +29,8 @@ export const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
     if (Search) {
 
       const options = { ...exerciseOptions }
-      console.log(options.url)
+      options.params.limit = 150;
       const response = await fetchData(options)
-      console.log(options)
-      console.log(options)
-      console.log(options)
-      console.log(response)
 
       const searchedExercises = response.filter(
         (item) => item.name.toLowerCase().includes(Search)
