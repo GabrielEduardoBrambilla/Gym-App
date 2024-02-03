@@ -4,7 +4,7 @@ import { Stack, Typography } from '@mui/material'
 
 
 
-export const ExercisesCard = ({ exercise }) => {
+export const ExerciseCard = ({ exercise }) => {
   return (
     <Link to={`/exercise/${exercise.id}`}   >
       <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
