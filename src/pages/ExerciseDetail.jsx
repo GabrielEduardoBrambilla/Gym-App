@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Box } from '@mui/material'
 import { Detail } from '../components/Detail'
 import { ExerciseVideos } from '../components/ExerciseVideos'
+import { exerciseOptions, fetchData } from '../../utils/fetchData'
 
 
 export const ExerciseDetail = () => {
