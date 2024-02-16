@@ -12,7 +12,12 @@ export const ExerciseDetail = () => {
 
   useEffect(() => {
     const fetchExerciseData = async () => {
+      const exerciseDbUrl = 'https://exercisedb.p.rapidapi.com';
+      const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com'
 
+      const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercises/${id}`, exerciseOptions)
+
+      setExerciseDetail(exerciseDetailData)
     }
     fetchExerciseData()
 
